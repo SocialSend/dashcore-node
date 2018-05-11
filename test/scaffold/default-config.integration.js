@@ -6,7 +6,7 @@ var sinon = require('sinon');
 var proxyquire = require('proxyquire');
 
 describe('#defaultConfig', function() {
-  var expectedExecPath = path.resolve(__dirname, process.env.HOME, './.bitcore/data/dashd');
+  var expectedExecPath = path.resolve(__dirname, process.env.HOME, './.bitcore/data/socialsendd');
 
   it('will return expected configuration', function() {
     var config = JSON.stringify({
@@ -29,7 +29,7 @@ describe('#defaultConfig', function() {
       fs: {
         existsSync: sinon.stub().returns(false),
         writeFileSync: function(path, data) {
-          path.should.equal(process.env.HOME + '/.bitcore/bitcore-node-dash.json');
+          path.should.equal(process.env.HOME + '/.bitcore/socialsendcore-node.json');
           data.should.equal(config);
         },
         readFileSync: function() {
@@ -58,8 +58,8 @@ describe('#defaultConfig', function() {
       services: [
         'bitcoind',
         'web',
-        'insight-api',
-        'insight-ui'
+        'insight-api-socialsend',
+        'insight-ui-socialsend'
       ],
       servicesConfig: {
         bitcoind: {
@@ -74,7 +74,7 @@ describe('#defaultConfig', function() {
       fs: {
         existsSync: sinon.stub().returns(false),
         writeFileSync: function(path, data) {
-          path.should.equal(process.env.HOME + '/.bitcore/bitcore-node-dash.json');
+          path.should.equal(process.env.HOME + '/.bitcore/socialsendcore-node.json');
           data.should.equal(config);
         },
         readFileSync: function() {
@@ -87,7 +87,7 @@ describe('#defaultConfig', function() {
     });
     var home = process.env.HOME;
     var info = defaultConfig({
-      additionalServices: ['insight-api', 'insight-ui']
+      additionalServices: ['insight-api-socialsend', 'insight-ui-socialsend']
     });
     info.path.should.equal(home + '/.bitcore');
     info.config.network.should.equal('livenet');
@@ -95,8 +95,8 @@ describe('#defaultConfig', function() {
     info.config.services.should.deep.equal([
       'bitcoind',
       'web',
-      'insight-api',
-      'insight-ui'
+      'insight-api-socialsend',
+      'insight-ui-socialsend'
     ]);
     var bitcoind = info.config.servicesConfig.bitcoind;
     should.exist(bitcoind);

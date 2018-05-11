@@ -13,7 +13,6 @@ addons:
 node_js:
   - "v0.10.25"
 script:
-  - ./scripts/download
   - npm run regtest
   - npm run test
   - npm run jshint

@@ -7,7 +7,7 @@ var index = require('..');
 var log = index.log;
 
 var chai = require('chai');
-var bitcore = require('bitcore-lib-dash');
+var bitcore = require('socialsendcore-lib');
 var BN = bitcore.crypto.BN;
 var async = require('async');
 var rimraf = require('rimraf');
@@ -17,7 +17,7 @@ var bitcoind;
 var should = chai.should();
 var assert = chai.assert;
 var sinon = require('sinon');
-var BitcoinRPC = require('bitcoind-rpc-dash');
+var SocialSendRPC = require('socialsendd-rpc');
 var transactionData = [];
 var blockHashes = [];
 var utxos;
@@ -46,7 +46,7 @@ describe('Bitcoind Functionality', function() {
       bitcoind = require('../').services.Bitcoin({
         spawn: {
           datadir: datadir,
-          exec: path.resolve(__dirname, process.env.HOME, './.bitcore/data/dashd')
+          exec: path.resolve(__dirname, process.env.HOME, './.bitcore/data/socialsendd')
         },
         node: {
           network: regtestNetwork,
@@ -65,7 +65,7 @@ describe('Bitcoind Functionality', function() {
       bitcoind.start(function() {
         log.info('Bitcoind started');
 
-        client = new BitcoinRPC({
+        client = new SocialSendRPC({
           protocol: 'http',
           host: '127.0.0.1',
           port: 30331,

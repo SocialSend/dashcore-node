@@ -1,17 +1,17 @@
-Dashcore Node
+SocialSendcore Node
 ============
 
-A Dash full node for building applications and services with Node.js. A node is extensible and can be configured to run additional services. At the minimum a node has an interface to [Dash Core (dashd) v0.12.1.x](https://github.com/dashpay/dash/tree/v0.12.1.x) for more advanced address queries. Additional services can be enabled to make a node more useful such as exposing new APIs, running a block explorer and wallet service.
+A SocialSend full node for building applications and services with Node.js. A node is extensible and can be configured to run additional services. At the minimum a node has an interface to [SocialSend Core (socialsendd) v0.12.1.x](https://github.com/SocialSend/socialsend/tree/v0.12.1.x) for more advanced address queries. Additional services can be enabled to make a node more useful such as exposing new APIs, running a block explorer and wallet service.
 
 ## Install
 
 ```bash
-npm install -g @dashevo/dashcore-node
+npm install -g SocialSend/socialsendcore-node
 ```
 
 ## Prerequisites
 
-- Dash Core (dashd) (v0.12.1.x) with support for additional indexing *(see above)*
+- SocialSend Core (socialsendd) (v0.12.1.x) with support for additional indexing *(see above)*
 - Node.js v0.10, v0.12, v4 or v5
 - ZeroMQ *(libzmq3-dev for Ubuntu/Debian or zeromq on OSX)*
 - ~20GB of disk storage
@@ -19,19 +19,17 @@ npm install -g @dashevo/dashcore-node
 
 ## Configuration
 
-Dashcore includes a Command Line Interface (CLI) for managing, configuring and interfacing with your Dashcore Node.
+SocialSendcore includes a Command Line Interface (CLI) for managing, configuring and interfacing with your SocialSendcore Node.
 
 ```bash
-dashcore-node create -d <dash-data-dir> mynode
+socialsendcore-node create -d <socialsend-data-dir> mynode
 cd mynode
-dashcore-node install <service>
-dashcore-node install https://github.com/yourname/helloworld
-dashcore-node start
+socialsendcore-node install <service>
+socialsendcore-node install https://github.com/yourname/helloworld
+socialsendcore-node start
 ```
 
 This will create a directory with configuration files for your node and install the necessary dependencies.
-
-Please note that [Dashs v0.12.1.x](https://github.com/dashpay/dash/tree/v0.12.1.x) will be downloaded automatically. Once completed the dashd binary should be placed into the &lt;dash-data-dir&gt; folder specified during node creation.
 
 For more information about (and developing) services, please see the [Service Documentation](docs/services.md).
 
@@ -39,9 +37,9 @@ For more information about (and developing) services, please see the [Service Do
 
 There are several add-on services available to extend the functionality of Bitcore:
 
-- [Insight API](https://github.com/dashevo/insight-api/tree/master)
-- [Insight UI](https://github.com/dashevo/insight-ui/tree/master)
-- [Bitcore Wallet Service](https://github.com/dashevo/dashcore-wallet-service/tree/master)
+- [Insight API](https://github.com/SocialSend/insight-api-socialsend/tree/master)
+- [Insight UI](https://github.com/SocialSend/insight-ui-socialsend/tree/master)
+- [Bitcore Wallet Service](https://github.com/SocialSend/socialsendcore-wallet-service/tree/master)
 
 ## Documentation
 
@@ -56,11 +54,11 @@ There are several add-on services available to extend the functionality of Bitco
 
 ## Contributing
 
-Please send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/dashevo/dashcore/blob/master/CONTRIBUTING.md) file.
+Please send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/SocialSend/socialsendcore/blob/master/CONTRIBUTING.md) file.
 
 ## License
 
-Code released under [the MIT license](https://github.com/dashevo/dashcore-node/blob/master/LICENSE).
+Code released under [the MIT license](https://github.com/SocialSend/socialsendcore-node/blob/master/LICENSE).
 
 Copyright 2013-2015 BitPay, Inc.
 

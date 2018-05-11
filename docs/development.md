@@ -10,12 +10,12 @@ nvm install v4
 
 ## Fork and Download Repositories
 
-To develop bitcore-node-dash:
+To develop socialsendcore-node:
 
 ```bash
 cd ~
-git clone git@github.com:<yourusername>/bitcore-node-dash.git
-git clone git@github.com:<yourusername>/bitcore-lib.git
+git clone git@github.com:<yourusername>/socialsendcore-node.git
+git clone git@github.com:<yourusername>/socialsendcore-lib.git
 ```
 
 To develop bitcoin or to compile from source:
@@ -46,21 +46,21 @@ brew install zeromq
 ## Install and Symlink
 
 ```bash
-cd bitcore-lib
+cd socialsendcore-lib
 npm install
-cd ../bitcore-node-dash
+cd ../socialsendcore-node
 npm install
 ```
 **Note**: If you get a message about not being able to download bitcoin distribution, you'll need to compile bitcoind from source, and setup your configuration to use that version.
 
 
-We now will setup symlinks in `bitcore-node-dash` *(repeat this for any other modules you're planning on developing)*:
+We now will setup symlinks in `socialsendcore-node` *(repeat this for any other modules you're planning on developing)*:
 ```bash
 cd node_modules
-rm -rf bitcore-lib
-ln -s ~/bitcore-lib
-rm -rf bitcoind-rpc-dash
-ln -s ~/bitcoind-rpc-dash
+rm -rf socialsendcore-lib
+ln -s ~/socialsendcore-lib
+rm -rf socialsendd-rpc
+ln -s ~/socialsendd-rpc
 ```
 
 And if you're compiling or developing bitcoin:
@@ -78,7 +78,7 @@ npm install mocha -g
 
 To run all test suites:
 ```bash
-cd bitcore-node-dash
+cd socialsendcore-node
 npm run regtest
 npm run test
 ```
@@ -102,11 +102,11 @@ cd ~
 mkdir devnode
 cd devnode
 mkdir node_modules
-touch bitcore-node-dash.json
+touch socialsendcore-node.json
 touch package.json
 ```
 
-Edit `bitcore-node-dash.json` with something similar to:
+Edit `socialsendcore-node.json` with something similar to:
 ```json
 {
   "network": "livenet",
@@ -114,8 +114,8 @@ Edit `bitcore-node-dash.json` with something similar to:
   "services": [
     "bitcoind",
     "web",
-    "insight-api",
-    "insight-ui",
+    "insight-api-socialsend",
+    "insight-ui-socialsend",
     "<additional_service>"
   ],
   "servicesConfig": {
@@ -129,16 +129,16 @@ Edit `bitcore-node-dash.json` with something similar to:
 }
 ```
 
-**Note**: To install services [insight-api](https://github.com/bitpay/insight-api) and [insight-ui](https://github.com/bitpay/insight-ui) you'll need to clone the repositories locally.
+**Note**: To install services [insight-api-socialsend](https://github.com/bitpay/insight-api-socialsend) and [insight-ui-socialsend](https://github.com/bitpay/insight-ui-socialsend) you'll need to clone the repositories locally.
 
 Setup symlinks for all of the services and dependencies:
 
 ```bash
 cd node_modules
-ln -s ~/bitcore-lib
-ln -s ~/bitcore-node-dash
-ln -s ~/insight-api
-ln -s ~/insight-ui
+ln -s ~/socialsendcore-lib
+ln -s ~/socialsendcore-node
+ln -s ~/insight-api-socialsend
+ln -s ~/insight-ui-socialsend
 ```
 
 Make sure that the `<datadir>/bitcoin.conf` has the necessary settings, for example:
@@ -158,5 +158,5 @@ rpcpassword=local321
 
 From within the `devnode` directory with the configuration file, start the node:
 ```bash
-../bitcore-node-dash/bin/bitcore-node-dash start
+../socialsendcore-node/bin/socialsendcore-node start
 ```

@@ -9,13 +9,13 @@ var log = index.log;
 log.debug = function() {};
 
 var chai = require('chai');
-var bitcore = require('bitcore-lib-dash');
+var bitcore = require('socialsendcore-lib');
 var rimraf = require('rimraf');
 var node;
 
 var should = chai.should();
 
-var BitcoinRPC = require('bitcoind-rpc-dash');
+var SocialSendRPC = require('socialsendd-rpc');
 var index = require('..');
 var Transaction = bitcore.Transaction;
 var BitcoreNode = index.Node;
@@ -53,7 +53,7 @@ describe('Node Functionality', function() {
             config: {
               spawn: {
                 datadir: datadir,
-                exec: path.resolve(__dirname, process.env.HOME, './.bitcore/data/dashd')
+                exec: path.resolve(__dirname, process.env.HOME, './.bitcore/data/socialsendd')
               }
             }
           }
@@ -74,7 +74,7 @@ describe('Node Functionality', function() {
           return done(err);
         }
 
-        client = new BitcoinRPC({
+        client = new SocialSendRPC({
           protocol: 'http',
           host: '127.0.0.1',
           port: 30331,
